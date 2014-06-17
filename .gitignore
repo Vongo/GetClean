@@ -6,3 +6,6 @@
 
 # R data files from past sessions
 .Rdata
+
+# Anything from the dataset
+./UCI\ HAR\ Dataset/
