@@ -33,6 +33,8 @@ yTest <- read.table(paste(path, testPath, "y_test.txt", sep = ""))
 subjectTrain <- read.table(paste(path, trainPath, "subject_train.txt", sep = ""))
 subjectTest <- read.table(paste(path, testPath, "subject_test.txt", sep = ""))
 
+### 3) Uses descriptive activity names to name the activities in the data set
+### 4) Appropriately labels the data set with descriptive variable names. 
 ## Load & fill variable names
 # Load
 names <- read.table(paste(path, "features.txt", sep=""))
@@ -48,8 +50,15 @@ colnames(subjectTrain) <- "Subject"
 colnames(subjectTest) <- "Subject"
 
 ### 1) Merges the training and the test sets to create one data set.
+
+xD <- rbind(xTest,xTrain)
+yD <- rbind(yTest,yTrain)
+subjectD <- rbind(subjectTrain,subjectTest)
+
+xMeanStd <- xD[,c(grep("mean\\(\\)", names),grep("std\\(\\)", names))]
+
+theOneTrueData <- cbind(yD,subjectD,xMeanStd)
+
 ### 2) Extracts only the measurements on the mean and standard deviation for each measurement. 
-### 3) Uses descriptive activity names to name the activities in the data set
-### 4) Appropriately labels the data set with descriptive variable names. 
 ### 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
