@@ -64,17 +64,17 @@ output <- as.data.frame(DT[,lapply(.SD, mean), by = c("Activity","Subject")])
 ### 3) Uses descriptive activity names to name the activities in the data set
 ### 4) Appropriately labels the data set with descriptive variable names.
 # note that 90% of the job was done before merging the data.
-output <- merge(output,activityLabels,by.x = "Activity",by.y = "Id")
+output <- merge(output, activityLabels, by.x = "Activity", by.y = "Id")
 
-### 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+### 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+data <- split(output, list(output$Subject, as.factor(output$Activity)))
+activities <- colnames(output)[3:67]
+newOne <- lapply(data, function(x) colMeans(x[,c(activities)]))
 
-
-
-
-# Make it pretty and export
+## Make it pretty and export
 # Remove the activity Id (cosmetics)
 output <- output[,-1]
 # Put the activity label in the first row
-output <- output[,c(ncol(output),1:(ncol(output)-1))]
+output <- output[, c(ncol(output), 1:(ncol(output)-1))]
 
-write.table(output,paste(dataPath, "meanStdTidyData.txt", sep=""),row.names = FALSE)
+write.table(output, paste(".", "TidyData.txt", sep=""), row.names = FALSE)
