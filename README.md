@@ -11,12 +11,12 @@ Or copy the content of run_analysis.R in your R console.
 
 # File list
 
-CodeBook.md 		Code book that describes the variables, the data, and any transformations or work performed to clean up the data <br/>
-run_analysis.R 		R script that performs the analysis described in CodeBook.
-README.md 			Read it ! <br/>
-LICENCE 			Artistic Licence because R is so beautiful ! (Not speaking for my code... yet) <br/>
-.gitignore 			Ignore it ! <br/>
-TidyData.txt 		A tidy data set according to the instructions in the project description
+<strong>CodeBook.md </strong>		Code book that describes the variables, the data, and any transformations or work performed to clean up the data <br/>
+<strong>run_analysis.R</strong> 	R script that performs the analysis described in CodeBook.<br/>
+<strong>README.md </strong>			Read it ! <br/>
+<strong>LICENCE 	</strong>Artistic Licence because R is so beautiful ! (Not speaking for my code... yet) <br/>
+<strong>.gitignore 	</strong>Ignore it ! <br/>
+<strong>TidyData.txt</strong> 		A tidy data set according to the instructions in the project description
 
 # FAQ
 
