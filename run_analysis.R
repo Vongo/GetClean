@@ -77,4 +77,4 @@ output <- output[,-1]
 # Put the activity label in the first row
 output <- output[, c(ncol(output), 1:(ncol(output)-1))]
 
-write.table(output, paste(".", "TidyData.txt", sep=""), row.names = FALSE)
+write.table(output, paste("./", "TidyData.txt", sep=""), row.names = FALSE)
