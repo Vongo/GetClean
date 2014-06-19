@@ -30,4 +30,4 @@ Q : Why the hell did you write a FAQ ? <br/>
 A : Why the hell are you reading it ?
 
 Q : What grade do you want ? <br/>
-A : Hum, tough question. Whar grade would you give me ?
+A : Hum, tough question. What grade would you give me ?
