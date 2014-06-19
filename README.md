@@ -31,3 +31,12 @@ A : Why the hell are you reading it ?
 
 Q : What grade do you want ? <br/>
 A : Hum, tough question. What grade would you give me ?
+
+## What does run_analysis.R do ?
+
+- Downloads & unzips the dataset if it is not already in the working directory (0)
+- Loads the data (0)
+- Names data object variables (3,4)
+- Merges the training and the test sets to create one data set (output) (1)
+- Extracts the measurements on the mean and standard deviation for each measurement, and groups the data by activity and subject. (2,5)
+- Affects activity names (3,4)
