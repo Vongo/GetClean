@@ -58,6 +58,7 @@ xMeanStd <- xD[,c(grep("mean\\(\\)", names),grep("std\\(\\)", names))]
 theOneTrueData <- cbind(yD,subjectD,xMeanStd)
 
 ### 2) Extracts only the measurements on the mean and standard deviation for each measurement. 
+### 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 DT <- data.table(theOneTrueData)
 output <- as.data.frame(DT[,lapply(.SD, mean), by = c("Activity","Subject")])
 
@@ -66,10 +67,11 @@ output <- as.data.frame(DT[,lapply(.SD, mean), by = c("Activity","Subject")])
 # note that 90% of the job was done before merging the data.
 output <- merge(output, activityLabels, by.x = "Activity", by.y = "Id")
 
-### 5) Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-data <- split(output, list(output$Subject, as.factor(output$Activity)))
-activities <- colnames(output)[3:67]
-newOne <- lapply(data, function(x) colMeans(x[,c(activities)]))
+### Other way to perform 5) but less classy and with no labels as a result.
+# data <- split(output, list(output$Subject, as.factor(output$Activity)))
+# activities <- colnames(output)[3:67]
+# newOne <- lapply(data, function(x) colMeans(x[,c(activities)]))
+
 
 ## Make it pretty and export
 # Remove the activity Id (cosmetics)
