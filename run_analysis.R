@@ -28,23 +28,22 @@ path <- paste("./", dirName, "/", sep = "")
 # Load the data into wisely named objects ;)
 xTrain <- read.table(paste(path, trainPath, "X_train.txt", sep = ""))
 yTrain <- read.table(paste(path, trainPath, "y_train.txt", sep = ""))
+subjectTrain <- read.table(paste(path, trainPath, "subject_train.txt", sep = ""))
 xTest <- read.table(paste(path, testPath, "X_test.txt", sep = ""))
 yTest <- read.table(paste(path, testPath, "y_test.txt", sep = ""))
-subjectTrain <- read.table(paste(path, trainPath, "subject_train.txt", sep = ""))
 subjectTest <- read.table(paste(path, testPath, "subject_test.txt", sep = ""))
 
 ## Load & fill variable names
 # Load
-names <- read.table(paste(path, "features.txt", sep=""))
-names <- names[,2]
+names <- read.table(paste(path, "features.txt", sep=""))[,2]
 activityLabels <- read.table(paste(path, "activity_labels.txt", sep=""))
 colnames(activityLabels) <- c("Id","Label")
 # Fill
 colnames(xTrain) <- names
-colnames(xTest) <- names
 colnames(yTrain) <- "Activity"
-colnames(yTest) <- "Activity"
 colnames(subjectTrain) <- "Subject"
+colnames(xTest) <- names
+colnames(yTest) <- "Activity"
 colnames(subjectTest) <- "Subject"
 
 ### 1) Merges the training and the test sets to create one data set.
